@@ -40,7 +40,7 @@ Run in terminal:
 ```shell
 wget https://ftp.ncbi.nlm.nih.gov/pub/clinvar/xml/clinvar_variation/ClinVarVariationRelease_00-latest.xml.gz
 pypy3 parse_clinvar_v.py clinvar_variation/ClinVarVariationRelease_00-latest.xml.gz True
-# or replace pypy to python if you prefer, but Cpython is more time comsuming that ~18 hours are needed
+# or replace pypy to python if you prefer, but CPython is more time comsuming that ~18 hours are needed
 ```
 After a long wait(~3h), you will get a `.tsv.gz` file.
 
