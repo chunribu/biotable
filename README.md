@@ -54,7 +54,7 @@ There are many XML files shared by NCBI on its FTP server, but how to convert th
 
 ### How to get OMIM's full data of tsv format?<a name="q3"></a>
 
-`omim` is an open source tool developed by [suqingdong](https://github.com/suqingdong). It provides data from OMIM web and saves in SQLite. Some of informations are Json strings which are flatten as shown in the following link and then saved to a tsv. 
+`omim` is an open source tool developed by [suqingdong](https://github.com/suqingdong). It provides data from OMIM web and saves in SQLite. Some of informations are Json strings which are then flatten as shown in the following link. 
 
 Due to the long wait while updating, the result file will be shared as a [release](https://github.com/chunribu/biotable/releases) to avoid duplication of work.
 
