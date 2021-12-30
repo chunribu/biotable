@@ -1,5 +1,3 @@
-# BioTable
-
 Hi!👋
 
 This is about biological data, especially tabulars which can be processed in Python and pandas in most cases. Some examples are given, I hope there is one that happens to be useful to you.
