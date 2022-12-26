@@ -10,6 +10,7 @@ This is about biological data, especially tabulars which can be processed in Pyt
     1. [How to obtain ClinVar variation data in tsv format?](#q1)
     2. [How to convert XML to JSON?](#q2)
     3. [How to get OMIM's full data of tsv format?](#q3)
+    4. [How to download SRA data from EBI's FTP?](#q4)
 
 
 ## Fundamentals
@@ -57,3 +58,25 @@ There are many XML files shared by NCBI on its FTP server, but how to convert th
 Due to the long wait while updating, the result file will be shared as a [release](https://github.com/chunribu/biotable/releases) to avoid duplication of work.
 
 [link](src/omim_db_full_data_sqlite3_to_tsv.ipynb)
+
+### How to download SRA data from EBI's FTP?<a name="q4"></a>
+
+国内下载NCBI数据越来越痛苦，因为NCBI数据逐渐迁移到谷歌和亚马逊的云服务。但EBI与NCBI共享数据，EBI仍然直接提供FTP服务，对国内网络相对更加友好。下面我将介绍如何利用aspera（相对）高速和稳定地下载SRA数据。
+
+1. 请保证您已经安装conda。如果没有，请到[这里](https://docs.conda.io/en/latest/miniconda.html)下载安装。
+2. 在你的`base`环境中安装aspera-cli。
+
+```shell
+conda install -c hcc aspera-cli
+```
+
+设置过conda镜像的话，可能会安装失败，可以先暂时把配置文件改名`mv ~/.condarc ~/.condarc_bak`，等安装成功后再改回去即可`mv ~/.condarc_bak ~/.condarc`。
+
+3. 根据Accession下载FTP文件。
+
+```shell
+acc="SRR000004"
+outdir="./"
+ascp -QT -l 300m -P 33001 -i ~/miniconda3/etc/asperaweb_id_dsa.openssh era-fasp@fasp.sra.ebi.ac.uk:vol1/fastq/${acc:0:6}/${acc}/${acc}_1.fastq.gz ${outdir}
+ascp -QT -l 300m -P 33001 -i ~/miniconda3/etc/asperaweb_id_dsa.openssh era-fasp@fasp.sra.ebi.ac.uk:vol1/fastq/${acc:0:6}/${acc}/${acc}_2.fastq.gz ${outdir}
+```
