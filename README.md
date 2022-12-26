@@ -72,7 +72,7 @@ conda install -c hcc aspera-cli
 
 设置过conda镜像的话，可能会安装失败，可以先暂时把配置文件改名`mv ~/.condarc ~/.condarc_bak`，等安装成功后再改回去即可`mv ~/.condarc_bak ~/.condarc`。
 
-3. 根据Accession下载FTP文件。
+3. 根据Accession下载fastq文件。
 
 ```shell
 acc="SRR000004"
